@@ -1,65 +1,65 @@
-Bit-to-Pixel File Encoder
-This project provides a simple and efficient way to encode any binary file into a PNG image using pixel colors, and decode it back to the original file — all through a modern GUI interface built with PyQt5.
+📦 Кодировщик файла в пиксели (Bit-to-Pixel File Encoder)
+Проект позволяет закодировать любой бинарный файл в PNG-изображение с помощью цвета пикселей, а затем восстановить его обратно. Всё это — через современный GUI-интерфейс на PyQt5.
 
-✨ Features
-🔁 Encode any file (text, zip, executable, etc.) into a lossless PNG image.
+✨ Возможности
+🔁 Кодирование любых файлов (текст, ZIP, исполняемые и др.) в PNG без потерь.
 
-🎨 Uses 24-bit RGB pixels: each pixel stores 3 bytes of data.
+🎨 Используется 24-битный RGB: каждый пиксель хранит 3 байта.
 
-🧵 Fast & memory-efficient encoding (no base64 or bit strings).
+⚡ Быстрое и эффективное кодирование без base64 и битовых строк.
 
-🖱️ Drag-and-drop file selection.
+🖱️ Поддержка drag-and-drop.
 
-💻 GUI built with PyQt5, styled and responsive.
+💻 Удобный GUI на PyQt5 со стилями.
 
-🖼️ Encoded PNG can be viewed like any regular image.
+🖼️ Полученное PNG можно просматривать как обычное изображение.
 
-🔓 Fully reversible — decode image to restore original file byte-for-byte.
+🔓 Полностью обратимо — декодирует PNG обратно в оригинальный файл побайтно.
 
-🖼️ How It Works
-The file is read as a sequence of bytes.
+🖼️ Как это работает
+Файл читается побайтно.
 
-Each group of 3 bytes becomes one RGB pixel:
-byte1 → R, byte2 → G, byte3 → B
+Каждые 3 байта преобразуются в пиксель RGB:
+байт1 → R, байт2 → G, байт3 → B
 
-If the file length isn’t divisible by 3, it’s padded with null bytes.
+Если длина файла не кратна 3, добавляются нулевые байты.
 
-The pixels are arranged into a square image and saved as PNG.
+Пиксели укладываются в квадратное изображение и сохраняются как PNG.
 
-The PNG is fully lossless and reversible.
+PNG сохраняется без потерь — восстановление гарантировано.
 
-🚀 Getting Started
-🔧 Install dependencies
+🚀 Быстрый старт
+🔧 Установка зависимостей
 bash
 Копировать
 Редактировать
 pip install PyQt5 pillow numpy
-▶️ Run the GUI
+▶️ Запуск программы
 bash
 Копировать
 Редактировать
 python app.py
-📂 File Structure
+📂 Структура проекта
 bash
 Копировать
 Редактировать
 .
-├── app.py               # PyQt5 GUI interface
-├── encode_decode.py     # Core encoding/decoding logic
-🛠 Example Use
-Open the GUI.
+├── app.py               # Графический интерфейс (PyQt5)
+├── encode_decode.py     # Логика кодирования/декодирования
+🛠 Пример использования
+Откройте GUI.
 
-Drag any file into the window.
+Перетащите любой файл в окно.
 
-Click "Encode to PNG" — save the image.
+Нажмите «Кодировать в PNG» — сохраните изображение.
 
-Later, drag the PNG back and click "Decode from PNG" to recover the original file.
+Позже перетащите PNG обратно и нажмите «Декодировать из PNG», чтобы восстановить файл.
 
-⚠️ Limitations
-Large files will produce large images (e.g., 1MB ≈ 600x600 px).
+⚠️ Ограничения
+Крупные файлы → крупные изображения (напр., 1 МБ ≈ 600×600 пикселей).
 
-Padding bytes may slightly increase image size, but do not affect decoding.
+В конец файла могут добавляться нулевые байты для выравнивания — они не влияют на восстановление.
 
-📘 License
-MIT License.
-Feel free to use, modify, and share.
+📘 Лицензия
+Лицензия MIT.
+Разрешается использовать, изменять и распространять.
